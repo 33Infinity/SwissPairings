@@ -8,7 +8,7 @@
              xmlns:vm="clr-namespace:SwissPairings.ViewModels"
              Title="{Binding Title}">
     <ContentPage.BindingContext>
-        <vm:PlayerViewModel />
+        <vm:PlayersViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
@@ -19,12 +19,19 @@
             <Button Command="{Binding AddNewPlayerCommand}" IsEnabled="{Binding AddNewPlayerEnabled}" Text="Add" TextColor="White"  
                     FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#088da5" />
-            <ListView x:Name="PlayerListView" ItemsSource="{Binding Players}">
+            <ListView x:Name="PlayerListView" ItemsSource="{Binding Players}"> 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Text="{Binding FirstName}"/>
+                                <Grid x:Name="Item">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="1*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding FirstName}" Grid.Column="0"/>
+                                    <Button Text="Delete" BackgroundColor="Red" Grid.Column="1" Clicked="DeleteClicked"/>
+                                </Grid>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
