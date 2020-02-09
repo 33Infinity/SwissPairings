@@ -8,7 +8,8 @@ namespace SwissPairings.Models
     {
         Browse,
         About,
-        Login
+        Login, 
+        Player
     }
     public class HomeMenuItem
     {

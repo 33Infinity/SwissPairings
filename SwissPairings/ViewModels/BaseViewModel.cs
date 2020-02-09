@@ -15,6 +15,9 @@ namespace SwissPairings.ViewModels
         public IDataStore<Item> DataStore => DependencyService.Get<IDataStore<Item>>();
 
         bool isBusy = false;
+
+        public string ErrorMessage { get; set; }
+        public bool HasErrors { get; set; }
         public bool IsBusy
         {
             get { return isBusy; }
@@ -43,7 +46,7 @@ namespace SwissPairings.ViewModels
 
         #region INotifyPropertyChanged
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = "")
         {
             var changed = PropertyChanged;
             if (changed == null)

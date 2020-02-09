@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using SQLite;
 
 namespace SwissPairings.Models
@@ -10,5 +8,7 @@ namespace SwissPairings.Models
 
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
+        public DateTime CreatedOn { get; set; } = DateTime.Now;
+
     }
 }

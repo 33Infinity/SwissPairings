@@ -39,6 +39,9 @@ namespace SwissPairings.Views
                     case (int)MenuItemType.Login:
                         MenuPages.Add(id, new NavigationPage(new Login()));
                         break;
+                    case (int)MenuItemType.Player:
+                        MenuPages.Add(id, new NavigationPage(new Player()));
+                        break;
                 }
             }
 
